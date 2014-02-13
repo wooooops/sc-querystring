@@ -26,7 +26,7 @@ it( "Given the following data", function () {
 describe( "querystring.stringify(object:Object)", function () {
 
   it( "should stringify a complex object to a querystring", function () {
-    should( querystring.stringify( testObject ) ).equal( complexQueryString );
+    querystring.stringify( testObject ).should.equal( complexQueryString );
   } );
 
 } );
@@ -36,13 +36,13 @@ describe( "querystring.parse(queryString:String)", function () {
   it( "should parse a complex querystring", function () {
     var parsedQuerystring = querystring.parse( complexQueryString );
 
-    should.equal( parsedQuerystring[ "chicken" ], testObject[ "chicken" ] );
-    should.equal( parsedQuerystring[ "duck" ], testObject[ "duck" ] );
-    should.equal( JSON.stringify( parsedQuerystring[ "key has a space" ] ), JSON.stringify( testObject[ "key has a space" ] ) );
-    should.equal( parsedQuerystring[ "number" ], testObject[ "number" ] );
-    should.equal( JSON.stringify( parsedQuerystring[ "array" ] ), JSON.stringify( testObject[ "array" ] ) );
-    should.equal( parsedQuerystring[ "boolean" ], testObject[ "boolean" ] );
-    should.equal( JSON.stringify( parsedQuerystring[ "date" ] ), JSON.stringify( testObject[ "date" ] ) );
+    parsedQuerystring[ "chicken" ].should.equal( testObject[ "chicken" ] );
+    parsedQuerystring[ "duck" ].should.equal( testObject[ "duck" ] );
+    JSON.stringify( parsedQuerystring[ "key has a space" ] ).should.equal( JSON.stringify( testObject[ "key has a space" ] ) );
+    parsedQuerystring[ "number" ].should.equal( testObject[ "number" ] );
+    JSON.stringify( parsedQuerystring[ "array" ] ).should.equal( JSON.stringify( testObject[ "array" ] ) );
+    parsedQuerystring[ "boolean" ].should.equal( testObject[ "boolean" ] );
+    JSON.stringify( parsedQuerystring[ "date" ] ).should.equal( JSON.stringify( testObject[ "date" ] ) );
   } );
 
 } );
